@@ -41,7 +41,7 @@ stages:
   displayName: Deploy to Dev
   dependsOn: Build
   variables:
-    acrsecret: maxacrauth
+    acrsecret: maxacrauthenticate
   jobs:
     - job: Deploy
       displayName: Deploy to AKS
