@@ -17,3 +17,5 @@ spec:
           image: mattaksregistry.azurecr.io/sampleapp
           ports:
           - containerPort: 80
+      imagePullSecrets:
+        - name: $(acrsecret)
