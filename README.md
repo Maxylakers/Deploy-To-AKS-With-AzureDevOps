@@ -2,12 +2,10 @@
 
 Repository for showcasing the deployment from Azure DevOps Pipelines to Azure Kubernetes Service Using Azure Container Registry from scratch.
 
-Since its a private project in Azure DevOps, few outputs can be found in the screenshots folder here in the project
+Few outputs can be found in the screenshots folder here in the project and here: https://dev.azure.com/nnangmathew/Dotnet-AKS-Deployment/_build
 
-
- In this demo project, we are holding our Dotnet application in the Azure Container Registry. 
  
- We also make a deployment for this image to run on Azure Kubernetes Service using the Azure DevOps pipeline.
+ We make a deployment for this image we build to Azure Container Reistry to run on Azure Kubernetes Service using the Azure DevOps pipeline.
 
  The use of Azure DevOps Environments has been used to serve as an authentication mechanism in place of Service Connections and a single pane of view for state of the deployments on the Azure portal.
 
