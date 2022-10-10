@@ -30,7 +30,6 @@ stages:
         Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
           $(tag)
-          latest
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(Pipeline.Workspace)/s/kubernetes'
@@ -42,6 +41,7 @@ stages:
   dependsOn: Build
   variables:
     acrsecret: maxacrauthenticate
+    acrdevurl: 'mattaksregistry.azurecr.io'
   jobs:
     - deployment: Deploy
       displayName: Deploy to AKS
@@ -72,3 +72,6 @@ stages:
                 manifests: |
                   $(Pipeline.Workspace)/manifests/deployment.yml
                   $(Pipeline.Workspace)/manifests/service.yml
+                containers: '$(acrdevurl)/$(imageRepo):$(tag)'
+                
+            
