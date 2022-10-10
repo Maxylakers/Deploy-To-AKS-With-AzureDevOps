@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'Max ACR'
+        containerRegistry: 'Max-ACR'
         repository: '$(imageRepo)'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
@@ -57,15 +57,15 @@ stages:
       - task: KubernetesManifest@0
         inputs:
           action: 'createSecret'
-          kubernetesServiceConnection: 'AKS Cluster Default'
+          kubernetesServiceConnection: 'AKS-Cluster-Default'
           namespace: 'default'
           secretType: 'dockerRegistry'
           secretName: '$(acrsecret)'
-          dockerRegistryEndpoint: 'Max ACR'
+          dockerRegistryEndpoint: 'Max-ACR'
       - task: KubernetesManifest@0
         inputs:
           action: 'deploy'
-          kubernetesServiceConnection: 'AKS Cluster Default'
+          kubernetesServiceConnection: 'AKS-Cluster-Default'
           namespace: 'default'
           manifests: |
             $(Pipeline.Workspace)/manifests/deployment.yml
